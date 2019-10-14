@@ -19,6 +19,7 @@ body {
     align-items: center;
     
     cursor: pointer;
+    text-decoration: none;
     
     filter: brightness(.3);
     background: #1d1d1d no-repeat 50% 50%;
