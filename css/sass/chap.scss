@@ -75,25 +75,37 @@ body{
 .main {
     padding: 20px 0;
     
-    .chapter .dark-opasity {
-        margin-right: -10px;
-        padding: 20px;
+    .chapter {
+        padding-left: 5px;
         
-        .title_chapter {
-	        font-size: 40px;
-            text-align: center;
-            margin-bottom: 15px; 
-        }
-        
-        .text_chapter {
-            text-align: justify;
-            p {
-                text-indent: 30px;
+        .dark-opasity {
+            padding: 20px;
+
+            .title_chapter {
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .text_chapter {
+                text-align: justify;
+                p {
+                    text-indent: 30px;
+                }
             }
         }
     }
     
-    .sidebar .dark-opasity {
-	    padding: 10px;
+    .sidebar {
+        .dark-opasity {
+            height: 100%;
+            margin-left: -20px;
+            padding: 10px;
+
+            #chatbro {
+                top: 50%;
+                height: 50%;
+            }
+        }
     }
 }

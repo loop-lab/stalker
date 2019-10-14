@@ -1517,8 +1517,10 @@ body {
 .main {
   padding: 20px 0;
 }
+.main .chapter {
+  padding-left: 5px;
+}
 .main .chapter .dark-opasity {
-  margin-right: -10px;
   padding: 20px;
 }
 .main .chapter .dark-opasity .title_chapter {
@@ -1533,7 +1535,13 @@ body {
   text-indent: 30px;
 }
 .main .sidebar .dark-opasity {
+  height: 100%;
+  margin-left: -20px;
   padding: 10px;
+}
+.main .sidebar .dark-opasity #chatbro {
+  top: 50%;
+  height: 50%;
 }
 
 /*# sourceMappingURL=chap.css.map */
