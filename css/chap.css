@@ -1493,7 +1493,7 @@ html::before {
 
 .dark-opasity {
   background-color: rgba(49, 49, 49, 0.7);
-  border-right: 5px;
+  border-radius: 10px;
 }
 
 /*====== HEADER ======*/
