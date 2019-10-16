@@ -3,22 +3,22 @@ $body-bg: #242424;
 $body-color: #fff;
 
 // Требуемое
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
+@import "../vendor/twbs/bootstrap/scss/functions";
+@import "../vendor/twbs/bootstrap/scss/variables";
+@import "../vendor/twbs/bootstrap/scss/mixins";
 
 // Опциональное
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/images";
-@import "../../node_modules/bootstrap/scss/code";
-@import "../../node_modules/bootstrap/scss/grid";
+@import "../vendor/twbs/bootstrap/scss/reboot";
+@import "../vendor/twbs/bootstrap/scss/type";
+@import "../vendor/twbs/bootstrap/scss/images";
+@import "../vendor/twbs/bootstrap/scss/code";
+@import "../vendor/twbs/bootstrap/scss/grid";
 
 
 html::before{
     content: ' ';
     display: block;
-    background-image: url(../../image/back.jpg);
+    background-image: url(../image/back.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -35,6 +35,7 @@ html::before{
 
 .dark-opasity{
     background-color: rgba(49, 49, 49, 0.7);
+    border-right: 5px;
 }
 
 
@@ -42,18 +43,18 @@ html::before{
 .header {
     padding: 10px 0;
     border-bottom: 1px solid $white;
-    
+
     .title {
         font-size: 70px;
         a {
             color: $white;
         }
-        
+
         a:hover {
             text-decoration: none;
         }
     }
-    
+
     .nav li a {
         font-size: 25px;
         padding: 1px 5px;
@@ -85,11 +86,12 @@ html::before{
 
 .main {
     padding: 20px 0;
-    
+
     .chapter {
         padding-left: 5px;
-        
-        .dark-opasity {
+
+        .block-chapter{
+            margin-left: 10px;
             padding: 20px;
 
             .title_chapter {
@@ -106,17 +108,30 @@ html::before{
             }
         }
     }
-    
+
     .sidebar {
-        .dark-opasity {
+        .block-sidebar {
             height: 100%;
-            margin-left: -20px;
+            margin-left: -5px;
             padding: 10px;
 
             #chatbro {
-                top: 50%;
                 height: 50%;
             }
         }
     }
+}
+
+
+.footer {
+    height: 100px;
+
+    .content{
+        height: 100%;
+        background-color: #131313;
+    }
+
+    .btn-first{}
+    .btn-center{}
+    .btm-last{}
 }
