@@ -22,8 +22,8 @@ html::before{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    height: 102vh;
+    width: 102vw;
     top: 0;
     bottom: 0;
     left: 0;
@@ -32,12 +32,18 @@ html::before{
     z-index: -1000;
 }
 
-
 .dark-opasity{
     background-color: rgba(49, 49, 49, 0.7);
     border-radius: 10px;
 }
 
+.wrapper {
+    min-height: 102vh;
+    min-width: 102vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 /*====== HEADER ======*/
 .header {
@@ -55,6 +61,36 @@ html::before{
         }
     }
 
+    .drop{
+        display: none;
+
+        .btn-secondary{
+            background-color: rgba(#000,.23);
+            border: none;
+
+            &:hover{
+                color: #9a0000;
+                background-color: rgba(#000,.23);
+                border: none;
+                box-shadow: none !important;
+            }
+
+            &:focus{
+                color: #9a0000;
+                background-color: rgba(#000,.23);
+                border: none;
+                box-shadow: none !important;
+            }
+
+            &:active{
+                color: #9a0000;
+                background-color: rgba(#000,.23);
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+
     .nav li a {
         font-size: 25px;
         padding: 1px 5px;
@@ -63,6 +99,9 @@ html::before{
         position: relative;
         overflow: hidden;
 
+        &:hover {
+            color: #9a0000;
+        }
 
         &:after{
             position: absolute;
@@ -71,9 +110,9 @@ html::before{
             display: block;
             width: 100%;
             height: 2px;
-            background-color: $white;
+            background-color: #9a0000;
             content: "";
-            border-bottom: 1px solid $white;
+            border-bottom: 1px solid #9a0000;
             transform: translate3d(-102%,0,0);
             transition: transform .3s linear;
         }
@@ -85,38 +124,45 @@ html::before{
 }
 
 .main {
-    padding: 20px 0;
+    padding: 15px 5px;
 
     .chapter {
-        padding-left: 5px;
+        padding: 5px;
 
         .block-chapter{
-            margin-left: 10px;
+            margin: 0;
+            height: 100%;
+            width: 100%;
             padding: 20px;
 
-            .title_chapter {
-                font-size: 40px;
-                text-align: center;
-                margin-bottom: 15px;
-            }
+            .card {
+                margin: 10px -10px;
+                background-color: #131313;
+                .card-title {
+                    text-align: center;
 
-            .text_chapter {
-                text-align: justify;
-                p {
-                    text-indent: 30px;
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: #9a0000;
+                        }
+                    }
                 }
             }
         }
     }
 
     .sidebar {
+        margin: 0;
+        padding: 5px;
         .block-sidebar {
             height: 100%;
-            margin-left: -5px;
             padding: 10px;
 
             #chatbro {
-                height: 50%;
+                height: 100%;
             }
         }
     }
@@ -124,14 +170,53 @@ html::before{
 
 
 .footer {
-    height: 100px;
+    height: 60px;
+    width: 100%;
+    background-color: #131313;
 
     .content{
         height: 100%;
-        background-color: #131313;
-    }
 
-    .btn-first{}
-    .btn-center{}
-    .btm-last{}
+        .col-2 {
+            padding: 0;
+            margin-right: 5px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 0;
+            height: 30px;
+            width: 30px;
+            border: none;
+
+            .soc {
+                display: block;
+                height: 100%;
+                width: 100%;
+                fill: #fff;
+                transition: fill .15s ease-in-out;
+            }
+
+            &:hover{
+                background-color: transparent;
+                border-color: #9a0000;
+
+                .soc {
+                    fill: #9a0000;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .header{
+        .nav{
+            display: none;
+        }
+
+        .drop{
+            display: flex;
+        }
+    }
 }
