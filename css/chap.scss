@@ -3,16 +3,16 @@ $body-bg: #242424;
 $body-color: #fff;
 
 // Требуемое
-@import "../vendor/twbs/bootstrap/scss/functions";
-@import "../vendor/twbs/bootstrap/scss/variables";
-@import "../vendor/twbs/bootstrap/scss/mixins";
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
 
 // Опциональное
-@import "../vendor/twbs/bootstrap/scss/reboot";
-@import "../vendor/twbs/bootstrap/scss/type";
-@import "../vendor/twbs/bootstrap/scss/images";
-@import "../vendor/twbs/bootstrap/scss/code";
-@import "../vendor/twbs/bootstrap/scss/grid";
+@import "../bootstrap/scss/reboot";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/images";
+@import "../bootstrap/scss/code";
+@import "../bootstrap/scss/grid";
 
 
 html::before{
