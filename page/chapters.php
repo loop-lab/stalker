@@ -1,9 +1,10 @@
 <?php
     require_once "../config/db.php";
     $url = 'http://'.$_SERVER['HTTP_HOST'];
-    $full_url = $url.$_SERVER['REQUEST_URI'];
-    $id_author = url_transition($url, $full_url);
-    $author = new author($id_author, $connection);
+    $url_chap = $url.$_SERVER['REQUEST_URI'];
+    $id = url_transition($url, $url_chap);
+    $full_url = $url . "/page/chapters.php?id=" . $id;
+    $author = new author($id, $connection);
     $title = $author -> title;
 ?>
 
@@ -29,11 +30,12 @@
             <?php include ('include/header.php')?>
 
             <div class="main row justify-content-between">
+
                 <div class="chapter col-xl-8 col-lg-12">
                     <div class="dark-opasity block-chapter row align-content-around">
 
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <a class="block_card" href=<?="'chapter.php?id=".$id_author."'"?>>
+                            <a class="block_card" href=<?="'chapter.php?id=".$id."'"?>>
                                 <div class="card">
                                     <img src="../image/chapter.jpg" class="card-img-top" alt="Title">
                                     <div class="card-body">
@@ -42,9 +44,10 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
+
             <?php include ('include/sidebar.php')?>
             </div>
         </div>
