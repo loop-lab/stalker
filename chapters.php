@@ -1,18 +1,17 @@
 <?php
-    ob_start();
+    require_once "config/db.php";
+
     $url = 'http://'.$_SERVER['HTTP_HOST'];
     $full_url = $url.$_SERVER['REQUEST_URI'];
     parse_str(parse_url($full_url, PHP_URL_QUERY), $query);
+
     $id_author = $query['id_author'];
-    if ($id_author == '1') {
-        $title = 'Байки Дыма';
-    } elseif ($id_author == '2') {
-        $title = 'Похождения Тельника';
-    } else {
+    if ( !($id_author == '1' || $id_author == '2') ) {
         header('Location: '.$url);
         exit();
     }
-    ob_end_flush();
+
+    $title = $authors[$id_author]['title'];
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +21,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <title><?=$title?></title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/chap.css">
 
     <!--  ChatBro  -->
     <script id="chatBroEmbedCode">/* Chatbro Widget Embed Code Start */function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','//www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}/* Chatbro Widget Embed Code End */ChatbroLoader({encodedChatId: '84LRb'});</script>
-
-    <title>Title</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="container">
             <header class="header row justify-content-between">
-                <h1 class="title col-6"><a href="/chapters.html"><?=$title?></a></h1>
+                <h1 class="title col-lg-6 col-md-6 col-8"><a href="/chapters.html"><?=$title?></a></h1>
                 <ul class="nav col-6 justify-content-end align-items-center">
                     <li class="nav-item">
                         <a class="nav-link active" href=<?=$url?>>Главная</a>
@@ -47,7 +46,7 @@
                         <a class="nav-link" href="#">Блог</a>
                     </li>
                 </ul>
-                <div class="drop dropdown col-6 justify-content-end align-items-center">
+                <div class="drop dropdown col-4 justify-content-end align-items-center">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg class="menu">
                             <use xlink:href="image/soc.svg#menu"></use>

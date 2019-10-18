@@ -51,7 +51,8 @@ html::before{
     border-bottom: 1px solid $white;
 
     .title {
-        font-size: 50px;
+        padding-left: 20px;
+        font-size: 45px;
         a {
             color: $white;
         }
@@ -63,6 +64,7 @@ html::before{
 
     .drop{
         display: none;
+        padding-right: 15px;
 
         .btn-secondary{
             fill: #fff;
@@ -266,8 +268,11 @@ html::before{
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .header{
+        .title{
+            font-size: 25px;
+        }
         .nav{
             display: none;
         }

@@ -1501,7 +1501,8 @@ html::before {
   border-bottom: 1px solid #fff;
 }
 .header .title {
-  font-size: 50px;
+  padding-left: 20px;
+  font-size: 45px;
 }
 .header .title a {
   color: #fff;
@@ -1511,6 +1512,7 @@ html::before {
 }
 .header .drop {
   display: none;
+  padding-right: 15px;
 }
 .header .drop .btn-secondary {
   fill: #fff;
@@ -1680,7 +1682,10 @@ html::before {
   fill: #9a0000;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+  .header .title {
+    font-size: 25px;
+  }
   .header .nav {
     display: none;
   }
