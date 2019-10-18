@@ -89,6 +89,30 @@ html::before{
                 box-shadow: none;
             }
         }
+
+        .dropdown-menu{
+            background-color: #131313;
+
+            .dropdown-item{
+                color: #fff;
+                
+                &:hover {
+                    color: #9a0000;
+                    background-color: #131313;
+                }
+
+                :focus{
+                    color: #9a0000;
+                    background-color: #131313;
+                }
+
+                &:active{
+                    color: #9a0000;
+                    background-color: #131313;
+                }
+
+            }
+        }
     }
 
     .nav li a {
@@ -134,20 +158,38 @@ html::before{
             height: 100%;
             width: 100%;
             padding: 20px;
+            overflow: hidden;
 
-            .card {
-                margin: 10px -10px;
-                background-color: #131313;
-                .card-title {
-                    text-align: center;
+            .img_chapter {
+                height: auto;
+                width: 100%;
+                margin-bottom: 20px;
+                border-radius: 15PX;
+            }
 
-                    a {
-                        color: #fff;
-                        text-decoration: none;
+            .title_chapter {
+                margin-bottom: 15px;
+                font-size: 45px !important;
+                text-align: center !important;
+            }
 
-                        &:hover {
-                            color: #9a0000;
-                        }
+            .text_chapter {
+                text-align: justify;
+            }
+
+            .block_card {
+                color: #fff;
+                text-decoration: none;
+
+                &:hover {
+                    color: #9a0000;
+                }
+
+                .card {
+                    margin: 10px -10px;
+                    background-color: #131313;
+                    .card-title {
+                        text-align: center;
                     }
                 }
             }

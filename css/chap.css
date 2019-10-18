@@ -1534,6 +1534,24 @@ html::before {
   border: none;
   box-shadow: none;
 }
+.header .drop .dropdown-menu {
+  background-color: #131313;
+}
+.header .drop .dropdown-menu .dropdown-item {
+  color: #fff;
+}
+.header .drop .dropdown-menu .dropdown-item:hover {
+  color: #9a0000;
+  background-color: #131313;
+}
+.header .drop .dropdown-menu .dropdown-item :focus {
+  color: #9a0000;
+  background-color: #131313;
+}
+.header .drop .dropdown-menu .dropdown-item:active {
+  color: #9a0000;
+  background-color: #131313;
+}
 .header .nav li a {
   font-size: 25px;
   padding: 1px 5px;
@@ -1573,20 +1591,35 @@ html::before {
   height: 100%;
   width: 100%;
   padding: 20px;
+  overflow: hidden;
 }
-.main .chapter .block-chapter .card {
-  margin: 10px -10px;
-  background-color: #131313;
+.main .chapter .block-chapter .img_chapter {
+  height: auto;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 15PX;
 }
-.main .chapter .block-chapter .card .card-title {
-  text-align: center;
+.main .chapter .block-chapter .title_chapter {
+  margin-bottom: 15px;
+  font-size: 45px !important;
+  text-align: center !important;
 }
-.main .chapter .block-chapter .card .card-title a {
+.main .chapter .block-chapter .text_chapter {
+  text-align: justify;
+}
+.main .chapter .block-chapter .block_card {
   color: #fff;
   text-decoration: none;
 }
-.main .chapter .block-chapter .card .card-title a:hover {
+.main .chapter .block-chapter .block_card:hover {
   color: #9a0000;
+}
+.main .chapter .block-chapter .block_card .card {
+  margin: 10px -10px;
+  background-color: #131313;
+}
+.main .chapter .block-chapter .block_card .card .card-title {
+  text-align: center;
 }
 .main .sidebar {
   margin: 0;
