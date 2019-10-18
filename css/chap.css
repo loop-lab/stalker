@@ -1501,7 +1501,7 @@ html::before {
   border-bottom: 1px solid #fff;
 }
 .header .title {
-  font-size: 70px;
+  font-size: 50px;
 }
 .header .title a {
   color: #fff;
@@ -1513,26 +1513,39 @@ html::before {
   display: none;
 }
 .header .drop .btn-secondary {
+  fill: #fff;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
 }
 .header .drop .btn-secondary:hover {
   color: #9a0000;
+  fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none !important;
 }
 .header .drop .btn-secondary:focus {
   color: #9a0000;
+  fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none !important;
 }
 .header .drop .btn-secondary:active {
   color: #9a0000;
+  fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none;
+}
+.header .drop .btn-secondary .menu {
+  height: 35px;
+  width: 35px;
+  margin-right: -7px;
+}
+.header .drop .dropdown-toggle::after {
+  border: none;
 }
 .header .drop .dropdown-menu {
   background-color: #131313;

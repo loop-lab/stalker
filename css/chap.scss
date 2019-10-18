@@ -51,7 +51,7 @@ html::before{
     border-bottom: 1px solid $white;
 
     .title {
-        font-size: 70px;
+        font-size: 50px;
         a {
             color: $white;
         }
@@ -65,11 +65,14 @@ html::before{
         display: none;
 
         .btn-secondary{
+            fill: #fff;
+            color: #fff;
             background-color: rgba(#000,.23);
             border: none;
 
             &:hover{
                 color: #9a0000;
+                fill: #9a0000;
                 background-color: rgba(#000,.23);
                 border: none;
                 box-shadow: none !important;
@@ -77,6 +80,7 @@ html::before{
 
             &:focus{
                 color: #9a0000;
+                fill: #9a0000;
                 background-color: rgba(#000,.23);
                 border: none;
                 box-shadow: none !important;
@@ -84,10 +88,21 @@ html::before{
 
             &:active{
                 color: #9a0000;
+                fill: #9a0000;
                 background-color: rgba(#000,.23);
                 border: none;
                 box-shadow: none;
             }
+
+            .menu{
+                height: 35px;
+                width: 35px;
+                margin-right: -7px;
+            }
+        }
+
+        .dropdown-toggle::after{
+            border: none;
         }
 
         .dropdown-menu{
@@ -95,7 +110,7 @@ html::before{
 
             .dropdown-item{
                 color: #fff;
-                
+
                 &:hover {
                     color: #9a0000;
                     background-color: #131313;

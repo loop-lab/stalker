@@ -1,3 +1,18 @@
+<?php
+    ob_start();
+    $url = 'http://'.$_SERVER['HTTP_HOST'];
+    $id_author = parse_url($url.$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+    if ($id_author == '1') {
+        $title = 'Байки Дыма';
+    } elseif ($id_author == '2') {
+        $title = 'Похождения Тельника';
+    } else {
+        header('Location: '.$url);
+        exit();
+    }
+    ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -18,8 +33,8 @@
     <div class="wrapper">
         <div class="container">
             <header class="header row justify-content-between">
-                <h1 class="title col-4"><a href="/chapters.html">Title</a></h1>
-                <ul class="nav col-8 justify-content-end align-items-center">
+                <h1 class="title col-6"><a href="/chapters.html"><?=$title?></a></h1>
+                <ul class="nav col-6 justify-content-end align-items-center">
                     <li class="nav-item">
                         <a class="nav-link active" href="/">Главная</a>
                     </li>
@@ -32,6 +47,9 @@
                 </ul>
                 <div class="drop dropdown col-6 justify-content-end align-items-center">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="menu">
+                            <use xlink:href="image/soc.svg#menu"></use>
+                        </svg>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <a class="dropdown-item" href="/">Главная</a>
