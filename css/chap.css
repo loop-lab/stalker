@@ -1498,78 +1498,81 @@ html::before {
 }
 
 /*====== HEADER ======*/
-.header {
+.container {
+  height: 100vh;
+}
+.container .header {
   padding: 10px 0;
   border-bottom: 1px solid #fff;
 }
-.header .title {
+.container .header .title {
   padding-left: 20px;
   font-size: 45px;
 }
-.header .title a {
+.container .header .title a {
   color: #fff;
 }
-.header .title a:hover {
+.container .header .title a:hover {
   text-decoration: none;
 }
-.header .drop {
+.container .header .drop {
   display: none;
   padding-right: 15px;
 }
-.header .drop .btn-secondary {
+.container .header .drop .btn-secondary {
   fill: #fff;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
 }
-.header .drop .btn-secondary:hover {
+.container .header .drop .btn-secondary:hover {
   color: #9a0000;
   fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none !important;
 }
-.header .drop .btn-secondary:focus {
+.container .header .drop .btn-secondary:focus {
   color: #9a0000;
   fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none !important;
 }
-.header .drop .btn-secondary:active {
+.container .header .drop .btn-secondary:active {
   color: #9a0000;
   fill: #9a0000;
   background-color: rgba(0, 0, 0, 0.23);
   border: none;
   box-shadow: none;
 }
-.header .drop .btn-secondary .menu {
+.container .header .drop .btn-secondary .menu {
   height: 35px;
   width: 35px;
   margin-right: -7px;
 }
-.header .drop .dropdown-toggle::after {
+.container .header .drop .dropdown-toggle::after {
   border: none;
 }
-.header .drop .dropdown-menu {
+.container .header .drop .dropdown-menu {
   background-color: #131313;
 }
-.header .drop .dropdown-menu .dropdown-item {
+.container .header .drop .dropdown-menu .dropdown-item {
   color: #fff;
 }
-.header .drop .dropdown-menu .dropdown-item:hover {
+.container .header .drop .dropdown-menu .dropdown-item:hover {
   color: #9a0000;
   background-color: #131313;
 }
-.header .drop .dropdown-menu .dropdown-item :focus {
+.container .header .drop .dropdown-menu .dropdown-item :focus {
   color: #9a0000;
   background-color: #131313;
 }
-.header .drop .dropdown-menu .dropdown-item:active {
+.container .header .drop .dropdown-menu .dropdown-item:active {
   color: #9a0000;
   background-color: #131313;
 }
-.header .nav li a {
+.container .header .nav li a {
   font-size: 25px;
   padding: 1px 5px;
   margin-left: 5px;
@@ -1577,10 +1580,10 @@ html::before {
   position: relative;
   overflow: hidden;
 }
-.header .nav li a:hover {
+.container .header .nav li a:hover {
   color: #9a0000;
 }
-.header .nav li a:after {
+.container .header .nav li a:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1593,94 +1596,94 @@ html::before {
   transform: translate3d(-102%, 0, 0);
   transition: transform 0.3s linear;
 }
-.header .nav li a:hover:after {
+.container .header .nav li a:hover:after {
   transform: translate3d(0, 0, 0);
 }
-
-.main {
+.container .main_inner {
+  width: inherit;
   padding: 15px 5px;
 }
-.main .chapter {
+.container .main_inner .chapter {
   padding: 5px;
 }
-.main .chapter .block-chapter {
+.container .main_inner .chapter .block-chapter {
   margin: 0;
   height: 100%;
   width: 100%;
   padding: 20px;
   overflow: hidden;
 }
-.main .chapter .block-chapter .img_chapter {
+.container .main_inner .chapter .block-chapter .img_chapter {
   height: auto;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 15PX;
 }
-.main .chapter .block-chapter .title_chapter {
+.container .main_inner .chapter .block-chapter .title_chapter {
   margin-bottom: 15px;
   font-size: 45px !important;
   text-align: center !important;
 }
-.main .chapter .block-chapter .text_chapter {
+.container .main_inner .chapter .block-chapter .text_chapter {
   text-align: justify;
 }
-.main .chapter .block-chapter .block_card {
+.container .main_inner .chapter .block-chapter .block_card {
   color: #fff;
   text-decoration: none;
 }
-.main .chapter .block-chapter .block_card:hover {
+.container .main_inner .chapter .block-chapter .block_card:hover {
   color: #9a0000;
 }
-.main .chapter .block-chapter .block_card .card {
+.container .main_inner .chapter .block-chapter .block_card .card {
   margin: 10px -10px;
   background-color: #131313;
 }
-.main .chapter .block-chapter .block_card .card .card-title {
+.container .main_inner .chapter .block-chapter .block_card .card .card-title {
   text-align: center;
 }
-.main .sidebar {
+.container .main_inner .sidebar {
   margin: 0;
   padding: 5px;
 }
-.main .sidebar .block-sidebar {
+.container .main_inner .sidebar .block-sidebar {
   height: 100%;
   padding: 10px;
 }
-.main .sidebar .block-sidebar #chatbro {
+.container .main_inner .sidebar .block-sidebar #chatbro {
   height: 100%;
+  max-width: 100%;
 }
-
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 60px;
-  width: 100vw;
+.container .footer {
+  padding: 0 15px;
+}
+.container .footer .footer__inner {
+  height: 50px;
   background-color: #131313;
+  border-radius: 10px;
 }
-.footer .col-2 {
+.container .footer .footer__inner .col-2 {
   padding: 0;
   margin-right: 5px;
   text-align: center;
 }
-.footer .btn {
+.container .footer .footer__inner .btn {
   padding: 0;
   height: 30px;
   width: 30px;
   border: none;
 }
-.footer .btn .soc {
+.container .footer .footer__inner .btn .soc {
   display: block;
   height: 100%;
   width: 100%;
   fill: #fff;
   transition: fill 0.15s ease-in-out;
 }
-.footer .btn:hover {
+.container .footer .footer__inner .btn:hover {
   background-color: transparent;
   border-color: #9a0000;
 }
-.footer .btn:hover .soc {
+.container .footer .footer__inner .btn:hover .soc {
   fill: #9a0000;
 }
 
@@ -1692,7 +1695,12 @@ html::before {
     display: none;
   }
   .header .drop {
-    display: flex;
+    display: flex !important;
+  }
+}
+@media (max-width: 360px) {
+  #chatbro {
+    display: none;
   }
 }
 

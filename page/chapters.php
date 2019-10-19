@@ -25,41 +25,42 @@
 </head>
 <body>
     <div class="wrapper container-fluid">
-        <div class="container column justify-Start">
+        <div class="container align-content-between">
             <?php include ('include/header.php')?>
+            <div class="main col-12">
+                <div class="main_inner">
+                    <div class="row justify-content-between">
+                        <div class="chapter col-xl-8 col-lg-12">
+                            <div class="dark-opasity block-chapter row align-content-around">
+                                <?php
+                                    $chapter = $author -> database($id_author, 'chapter');
+                                    if ($chapter) {
+                                    foreach ($chapter as $key => $value) {
+                                ?>
 
-            <div class="main row justify-content-between">
-                <div class="chapter col-xl-8 col-lg-12">
-                    <div class="dark-opasity block-chapter row align-content-around">
-                        <?php
-                            $chapter = $author -> database($id, 'chapter');
-                            if ($chapter) {
-                            foreach ($chapter as $key => $value) {
-                        ?>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <a class="block_card" href=<?="'chapter.php?id=".$id."&id_chapter =".$key."'"?>>
-                                <div class="card">
-                                    <img src=<?="'../image/".$value['image']."'"?> class="card-img-top" alt=<?=$value['title']?>>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?=$value['title']?></h4>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <a class="block_card" href=<?="'chapter.php?id=".$id_author."&id_chapter =".$key."'"?>>
+                                        <div class="card">
+                                            <img src=<?="'../image/".$value['image']."'"?> class="card-img-top" alt=<?=$value['title']?>>
+                                            <div class="card-body">
+                                                <h4 class="card-title"><?=$value['title']?></h4>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+
+                                <?php }} else { ?>
+                                    <h4 class="card-title col-12 align-self-center p-0 m-0" style="text-align: center;">Рассказов нет. Дождитесь следующего Выброса креатива!</h4>
+                                <?php } ?>
+                            </div>
                         </div>
 
-                    <?php }} else { ?>
-                        <h4 class="card-title col-12">Рассказов нет. Дождитесь следующего Выброса креатива!</h4>
-                    <?php } ?>
-
+                        <?php include ('include/sidebar.php')?>
                     </div>
                 </div>
-
-                <?php include ('include/sidebar.php')?>
             </div>
+            <?php include ('include/footer.php')?>
         </div>
-
-        <?php include ('include/footer.php')?>
     </div>
 
 
