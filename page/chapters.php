@@ -1,10 +1,9 @@
 <?php
     require_once "../config/db.php";
     $url = 'http://'.$_SERVER['HTTP_HOST'];
-    $url_chap = $url.$_SERVER['REQUEST_URI'];
-    $id = url_transition($url, $url_chap);
-    $full_url = $url . "/page/chapters.php?id=" . $id;
-    $author = new author($id, $connection);
+    $full_url = $url.$_SERVER['REQUEST_URI'];
+    $id_author = url_transition($url, $full_url);
+    $author = new author($id_author, $connection);
     $title = $author -> title;
 ?>
 
