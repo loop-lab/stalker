@@ -1471,11 +1471,7 @@ pre code {
 }
 
 .wrapper {
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 100vh;
   background-image: url("../image/back.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1636,35 +1632,36 @@ pre code {
 }
 
 .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   height: 60px;
+  width: 101%;
   background-color: #131313;
 }
-.footer .content {
-  height: 100%;
-}
-.footer .content .col-2 {
+.footer .col-2 {
   padding: 0;
   margin-right: 5px;
   text-align: center;
 }
-.footer .content .btn {
+.footer .btn {
   padding: 0;
   height: 30px;
   width: 30px;
   border: none;
 }
-.footer .content .btn .soc {
+.footer .btn .soc {
   display: block;
   height: 100%;
   width: 100%;
   fill: #fff;
   transition: fill 0.15s ease-in-out;
 }
-.footer .content .btn:hover {
+.footer .btn:hover {
   background-color: transparent;
   border-color: #9a0000;
 }
-.footer .content .btn:hover .soc {
+.footer .btn:hover .soc {
   fill: #9a0000;
 }
 

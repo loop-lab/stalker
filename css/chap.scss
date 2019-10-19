@@ -14,18 +14,14 @@ $body-color: #fff;
 @import "../node_modules/bootstrap/scss/code";
 @import "../node_modules/bootstrap/scss/grid";
 
+
 .dark-opasity{
     background-color: rgba(49, 49, 49, 0.7);
     border-radius: 10px;
 }
 
 .wrapper {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    height: 100vh;
     background-image: url('../image/back.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -216,40 +212,38 @@ $body-color: #fff;
 
 
 .footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     height: 60px;
-    // width: 100vw;
+    width: 101%;
     background-color: #131313;
+    .col-2 {
+        padding: 0;
+        margin-right: 5px;
+        text-align: center;
+    }
 
-    .content{
-        height: 100%;
+    .btn {
+        padding: 0;
+        height: 30px;
+        width: 30px;
+        border: none;
 
-        .col-2 {
-            padding: 0;
-            margin-right: 5px;
-            text-align: center;
+        .soc {
+            display: block;
+            height: 100%;
+            width: 100%;
+            fill: #fff;
+            transition: fill .15s ease-in-out;
         }
 
-        .btn {
-            padding: 0;
-            height: 30px;
-            width: 30px;
-            border: none;
+        &:hover{
+            background-color: transparent;
+            border-color: #9a0000;
 
             .soc {
-                display: block;
-                height: 100%;
-                width: 100%;
-                fill: #fff;
-                transition: fill .15s ease-in-out;
-            }
-
-            &:hover{
-                background-color: transparent;
-                border-color: #9a0000;
-
-                .soc {
-                    fill: #9a0000;
-                }
+                fill: #9a0000;
             }
         }
     }

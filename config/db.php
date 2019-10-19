@@ -20,9 +20,11 @@ class author {
     public $id;
     public $title;
     public $name;
+    private $connect;
 
     public function __construct($id, $connection) {
-        $author_db = $connection -> query("SELECT * FROM `author`");
+        $this -> $connect = $connection;
+        $author_db = $this -> $connect -> query("SELECT * FROM `author`");
 
         while ($row = $author_db -> fetch_assoc()) {
             $authors[$row['id']] = array(
@@ -35,7 +37,17 @@ class author {
         $this -> name = $authors[$id]['name'];
     }
 
-    public function chapter_bd($id_author, $connection) {
-        $chapter_db = $connection -> query("SELECT * FROM `chapter` WHERE" . $id_author);
+    public function database($id_author, $name_table) {
+        $chapter_db = $this -> $connect -> query("SELECT * FROM {$name_table} WHERE `id_author`={$id_author}");
+
+        while ($row = $chapter_db -> fetch_assoc()) {
+            $table[$row['id']] = array(
+                'title' => $row['title'],
+                'text' => $row['text'],
+                'image' => $row['image'],
+                'date' => $row['date']
+            );
+        }
+        return $table;
     }
 }

@@ -25,35 +25,42 @@
     <script id="chatBroEmbedCode">/* Chatbro Widget Embed Code Start */function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','//www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}/* Chatbro Widget Embed Code End */ChatbroLoader({encodedChatId: '84LRb'});</script>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
+    <div class="wrapper container-fluid">
+        <div class="container column justify-Start">
             <?php include ('include/header.php')?>
 
             <div class="main row justify-content-between">
-
                 <div class="chapter col-xl-8 col-lg-12">
                     <div class="dark-opasity block-chapter row align-content-around">
+                        <?php
+                            $chapter = $author -> database($id, 'chapter');
+                            if ($chapter) {
+                            foreach ($chapter as $key => $value) {
+                        ?>
 
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <a class="block_card" href=<?="'chapter.php?id=".$id."'"?>>
+                            <a class="block_card" href=<?="'chapter.php?id=".$id."&id_chapter =".$key."'"?>>
                                 <div class="card">
-                                    <img src="../image/chapter.jpg" class="card-img-top" alt="Title">
+                                    <img src=<?="'../image/".$value['image']."'"?> class="card-img-top" alt=<?=$value['title']?>>
                                     <div class="card-body">
-                                        <h4 class="card-title">Title</h4>
+                                        <h4 class="card-title"><?=$value['title']?></h4>
                                     </div>
                                 </div>
                             </a>
                         </div>
 
+                    <?php }} else { ?>
+                        <h4 class="card-title col-12">Рассказов нет. Дождитесь следующего Выброса креатива!</h4>
+                    <?php } ?>
+
                     </div>
                 </div>
 
-            <?php include ('include/sidebar.php')?>
+                <?php include ('include/sidebar.php')?>
             </div>
         </div>
 
         <?php include ('include/footer.php')?>
-
     </div>
 
 
