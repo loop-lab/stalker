@@ -192,11 +192,16 @@ html::before{
                 .title_chapter {
                     margin-bottom: 15px;
                     font-size: 45px !important;
-                    text-align: center !important;
+                    text-align: center;
                 }
 
                 .text_chapter {
+                    text-indent: 30px;
                     text-align: justify;
+                    color: #fff;
+                    white-space: pre-wrap;
+                    font-family: inherit;
+                    font-size: inherit;
                 }
 
                 .block_card {

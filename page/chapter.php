@@ -1,11 +1,16 @@
 <?php
     require_once "../config/db.php";
-    $url = 'http://'.$_SERVER['HTTP_HOST'];
-    $url_chap = $url.$_SERVER['REQUEST_URI'];
-    $id = url_transition($url, $url_chap);
-    $full_url = $url . "/page/chapters.php?id=" . $id;
-    $author = new author($id, $connection);
-    $title = $author -> title;
+    $full_url = $url.$_SERVER['REQUEST_URI'];
+    $id_author = (int) $_GET['id_author'];
+    $author = table("SELECT * FROM `author` WHERE `id`={$id_author}", $connection);
+    $id_table = (int) $_GET['id_table'];
+    if($id_table === 1) {
+        $name_table = 'chapter';
+    } elseif($id_table === 2) {
+        $name_table = 'blog';
+    }
+    $id = (int) $_GET['id'];
+    $chapter = table("SELECT * FROM `{$name_table}` WHERE `id_author`={$id_author} AND `id`={$id}", $connection);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +20,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?=$title?></title>
+    <title><?=$author[$id_author]['title']?></title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,30 +30,26 @@
     <script id="chatBroEmbedCode">/* Chatbro Widget Embed Code Start */function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','//www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}/* Chatbro Widget Embed Code End */ChatbroLoader({encodedChatId: '84LRb'});</script>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
+    <div class="wrapper container-fluid">
+        <div class="container align-content-between">
             <?php include ('include/header.php')?>
-
-            <div class="main row justify-content-between">
-
-                <div class="chapter col-xl-8 col-lg-12">
-                    <div class="dark-opasity block-chapter align-content-center">
-                        <h2 class="title_chapter ">Title</h2>
-                        <img class="img_chapter" src="../image/chapter.jpg" />
-                        <div class="text_chapter">
-                            <p>
-
-                            </p>
+            <div class="main col-12">
+                <div class="main_inner">
+                    <div class="row justify-content-between">
+                        <div class="chapter col-xl-8 col-lg-12">
+                            <div class="dark-opasity block-chapter row justify-content-center">
+                                <h2 class="title_chapter "><?=$chapter[$id]['title']?></h2>
+                                <img class="img_chapter" src=<?="../image/".$chapter[$id]['image']?> />
+                                <pre class="text_chapter"><?=$chapter[$id]['text']?></pre>
+                            </div>
                         </div>
+
+                        <?php include ('include/sidebar.php')?>
                     </div>
                 </div>
-
-            <?php include ('include/sidebar.php')?>
             </div>
+            <?php include ('include/footer.php')?>
         </div>
-
-        <?php include ('include/footer.php')?>
-
     </div>
 
 

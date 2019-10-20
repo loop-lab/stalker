@@ -1,10 +1,14 @@
 <?php
     require_once "../config/db.php";
-    $url = 'http://'.$_SERVER['HTTP_HOST'];
     $full_url = $url.$_SERVER['REQUEST_URI'];
-    $id_author = url_transition($url, $full_url);
-    $author = new author($id_author, $connection);
-    $title = $author -> title;
+    $id_author = (int) $_GET['id_author'];
+    $author = table("SELECT * FROM `author` WHERE `id`={$id_author}", $connection);
+    $id_table = (int) $_GET['id_table'];
+    if($id_table === 1) {
+        $name_table = 'chapter';
+    } elseif($id_table === 2) {
+        $name_table = 'blog';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +18,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?=$title?></title>
+    <title><?=$author[$id_author]['title']?></title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -33,13 +37,14 @@
                         <div class="chapter col-xl-8 col-lg-12">
                             <div class="dark-opasity block-chapter row align-content-around">
                                 <?php
-                                    $chapter = $author -> database($id_author, 'chapter');
-                                    if ($chapter) {
+                                    $chapter = table("SELECT * FROM `{$name_table}` WHERE `id_author`={$id_author}", $connection);
+                                    if($chapter) {
                                     foreach ($chapter as $key => $value) {
+
                                 ?>
 
                                 <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <a class="block_card" href=<?="'chapter.php?id=".$id_author."&id_chapter =".$key."'"?>>
+                                    <a class="block_card" href=<?="chapter.php?id_author={$id_author}&id_table={$id_table}&id={$key}"?>>
                                         <div class="card">
                                             <img src=<?="'../image/".$value['image']."'"?> class="card-img-top" alt=<?=$value['title']?>>
                                             <div class="card-body">
@@ -49,7 +54,7 @@
                                     </a>
                                 </div>
 
-                                <?php }} else { ?>
+                            <?php }} else { ?>
                                     <h4 class="card-title col-12 align-self-center p-0 m-0" style="text-align: center;">Рассказов нет. Дождитесь следующего Выброса креатива!</h4>
                                 <?php } ?>
                             </div>
