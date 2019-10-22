@@ -2,15 +2,15 @@
     require_once "../config/db.php";
     $full_url = $url.$_SERVER['REQUEST_URI'];
     $id_author = (int) $_GET['id_author'];
-    $author = table("SELECT * FROM `author` WHERE `id`={$id_author}", $connection);
+    $author = table("SELECT `id`, `title` FROM `author` WHERE `id`={$id_author}", $connection);
     $id_table = (int) $_GET['id_table'];
-    if($id_table === 1) {
+    if ($id_table === 1) {
         $name_table = 'chapter';
-    } elseif($id_table === 2) {
+    } elseif ($id_table === 2) {
         $name_table = 'blog';
     }
     $id = (int) $_GET['id'];
-    $chapter = table("SELECT * FROM `{$name_table}` WHERE `id_author`={$id_author} AND `id`={$id}", $connection);
+    $chapter = table("SELECT `title`, `image`, `text` FROM `{$name_table}` WHERE `id_author`={$id_author} AND `id`={$id}", $connection);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 <body>
     <div class="wrapper container-fluid">
         <div class="container align-content-between">
-            <?php include ('include/header.php')?>
+            <?php include 'include/header.php'?>
             <div class="main col-12">
                 <div class="main_inner">
                     <div class="row justify-content-between">
@@ -44,11 +44,11 @@
                             </div>
                         </div>
 
-                        <?php include ('include/sidebar.php')?>
+                        <?php include 'include/sidebar.php'?>
                     </div>
                 </div>
             </div>
-            <?php include ('include/footer.php')?>
+            <?php include 'include/footer.php'?>
         </div>
     </div>
 

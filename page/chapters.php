@@ -2,11 +2,11 @@
     require_once "../config/db.php";
     $full_url = $url.$_SERVER['REQUEST_URI'];
     $id_author = (int) $_GET['id_author'];
-    $author = table("SELECT * FROM `author` WHERE `id`={$id_author}", $connection);
+    $author = table("SELECT `id`, `title` FROM `author` WHERE `id`={$id_author}", $connection);
     $id_table = (int) $_GET['id_table'];
-    if($id_table === 1) {
+    if ($id_table === 1) {
         $name_table = 'chapter';
-    } elseif($id_table === 2) {
+    } elseif ($id_table === 2) {
         $name_table = 'blog';
     }
 ?>
@@ -30,15 +30,15 @@
 <body>
     <div class="wrapper container-fluid">
         <div class="container align-content-between">
-            <?php include ('include/header.php')?>
+            <?php include 'include/header.php'?>
             <div class="main col-12">
                 <div class="main_inner">
                     <div class="row justify-content-between">
                         <div class="chapter col-xl-8 col-lg-12">
                             <div class="dark-opasity block-chapter row align-content-around">
                                 <?php
-                                    $chapter = table("SELECT * FROM `{$name_table}` WHERE `id_author`={$id_author}", $connection);
-                                    if($chapter) {
+                                    $chapter = table("SELECT id, title, image FROM `{$name_table}` WHERE `id_author`={$id_author}", $connection);
+                                    if ($chapter) {
                                     foreach ($chapter as $key => $value) {
 
                                 ?>
@@ -60,11 +60,11 @@
                             </div>
                         </div>
 
-                        <?php include ('include/sidebar.php')?>
+                        <?php include 'include/sidebar.php'?>
                     </div>
                 </div>
             </div>
-            <?php include ('include/footer.php')?>
+            <?php include 'include/footer.php'?>
         </div>
     </div>
 
