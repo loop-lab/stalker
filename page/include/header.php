@@ -1,6 +1,6 @@
 <header class="header col-12">
     <div class="row justify-content-between">
-        <h1 class="title col-lg-6 col-md-6 col-8"><a href="/chapters.html"><?=$author[$id_author]['title']?></a></h1>
+        <h1 class="title col-lg-6 col-md-6 col-8"><a href=<?="/page/chapters.php?id_author={$id_author}&id_table=1"?>><?=$author[$id_author]['title']?></a></h1>
         <ul class="nav col-6 justify-content-end align-items-center">
             <li class="nav-item">
                 <a class="nav-link active" href="/">Главная</a>

@@ -10,7 +10,7 @@
         $name_table = 'blog';
     }
     $id = (int) $_GET['id'];
-    $chapter = table("SELECT `title`, `image`, `text` FROM `{$name_table}` WHERE `id_author`={$id_author} AND `id`={$id}", $connection);
+    $chapter = table("SELECT `id`, `title`, `image`, `text` FROM `{$name_table}` WHERE `id_author`={$id_author} AND `id`={$id}", $connection);
 ?>
 
 <!DOCTYPE html>

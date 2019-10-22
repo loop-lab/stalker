@@ -6,8 +6,10 @@
     $id_table = (int) $_GET['id_table'];
     if ($id_table === 1) {
         $name_table = 'chapter';
+        $order = '';
     } elseif ($id_table === 2) {
         $name_table = 'blog';
+        $order = ' ORDER BY `id` DESC';
     }
 ?>
 
@@ -37,10 +39,9 @@
                         <div class="chapter col-xl-8 col-lg-12">
                             <div class="dark-opasity block-chapter row align-content-around">
                                 <?php
-                                    $chapter = table("SELECT id, title, image FROM `{$name_table}` WHERE `id_author`={$id_author}", $connection);
+                                    $chapter = table("SELECT `id`, `title`, `image` FROM `{$name_table}` WHERE `id_author`={$id_author}{$order}", $connection);
                                     if ($chapter) {
                                     foreach ($chapter as $key => $value) {
-
                                 ?>
 
                                 <div class="col-lg-4 col-md-6 col-sm-12">

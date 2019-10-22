@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/auth.css">
+
     <title>Авторизация</title>
 </head>
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
 
             <div class="col-md-offset-3 col-md-6">
                 <form class="form-horizontal">
                     <span class="heading">АВТОРИЗАЦИЯ</span>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                        <input type="text" class="form-control" id="inputLogin" placeholder="Login">
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="form-group help">
