@@ -16,19 +16,3 @@ if ($connection -> connect_error) {
     echo $connection -> $connect_error;
     exit();
 }
-
-function table($query, $connection)
-{
-    $table_query = $connection -> query($query);
-    while ($row = $table_query -> fetch_assoc()) {
-        $table[$row['id']] = array();
-        foreach ($row as $key => $value) {
-            if ($key == 'id')
-            {
-                continue;
-            }
-            $table[$row['id']][$key] = $value;
-        }
-    }
-    return $table;
-}

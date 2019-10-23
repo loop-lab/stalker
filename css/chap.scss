@@ -294,8 +294,8 @@ html::before{
     }
 }
 
-@media (max-width: 360px){
+@media (max-width: 400px){
     #chatbro{
-        display: none;
+        display: none !important;
     }
 }
